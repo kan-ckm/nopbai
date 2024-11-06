@@ -1,0 +1,320 @@
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Định dạng chung */
+body,
+html {
+  font-family: Arial, sans-serif;
+  background-color: #e0f7fa;
+  color: #333;
+}
+
+/* Định dạng cho Header */
+header {
+  position: relative;
+  height: 800px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #e0f7fa;
+  text-align: center;
+  background-size: cover;
+}
+
+.header-gif {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Định dạng cho thanh điều hướng */
+
+#navbar {
+  background-color: #017f98;
+  padding: 20px;
+  width: 100%;
+  transition: top 0.3s;
+}
+
+/* Kiểu cố định khi menu ở trên cùng */
+.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Đảm bảo thanh menu nằm trên các phần tử khác */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: left;
+  padding: 0;
+}
+
+nav ul li {
+  position: relative;
+  margin: 0 80px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 50px;
+  border-radius: 7px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+nav ul li a:hover {
+  transform: translateY(-5px);
+}
+
+/* Submenu */
+.submenu {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #037d79;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  z-index: 2;
+  padding: 5px 10;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+nav ul li:hover .submenu {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.submenu li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 25px;
+  display: block;
+  white-space: nowrap;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.submenu li a:hover {
+  background-color: #004d40;
+  transform: translateY(-3px);
+}
+
+/* Container chính */
+.container {
+  display: flex;
+  margin: 50px;
+}
+
+/* Sidebar trái */
+.sidebar {
+  width: 250px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin-right: 20px;
+}
+
+.sidebar:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.menu-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Nội dung chính */
+main {
+  flex: 2;
+}
+
+/* Khung iframe chính */
+.styled-iframe {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin-bottom: 20px;
+}
+
+.styled-iframe iframe {
+  width: 100%;
+  height: 900px;
+  border: none;
+  scrollbar-width: none;
+}
+
+/* Các box nội dung */
+.content-box {
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin-top: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.content-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Sidebar phải (menu dọc bên phải) */
+.sidebar-right {
+  width: 250px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin-left: 20px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* Định dạng cho mục trong sidebar phải */
+.sidebar-right .menu-item-right {
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  background-color: #017f98;
+  text-decoration: none;
+  margin-bottom: 10px;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.sidebar-right .menu-item-right:hover {
+  background-color: #004d40;
+  transform: translateX(-5px);
+}
+
+/* Submenu trong sidebar phải */
+.sidebar-right .submenu-right {
+  display: block; /* Hiển thị block để không mất layout */
+  opacity: 0; /* Bắt đầu với độ mờ 0 */
+  transform: translateY(-10px); /* Dịch chuyển nhẹ lên trên */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Hiệu ứng trượt và mờ dần */
+  pointer-events: none; /* Vô hiệu hóa tương tác khi chưa hiển thị */
+  list-style: none;
+  padding-left: 15px;
+}
+
+/* Hiển thị submenu khi hover vào menu-item-right */
+.menu-item-right:hover .submenu-right {
+  opacity: 1; /* Hiển thị với độ mờ đầy đủ */
+  transform: translateY(0); /* Trả về vị trí ban đầu */
+  pointer-events: auto; /* Bật lại tương tác */
+}
+
+/* Các mục bên trong submenu */
+.submenu-right li a {
+  display: block;
+  padding: 5px 15px;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s; /* Hiệu ứng khi hover vào các mục */
+}
+
+/* Hiệu ứng khi hover vào các mục con của submenu */
+.submenu-right li a:hover {
+  background-color: #03656b;
+  transform: translateX(-5px); /* Trượt nhẹ sang trái */
+  opacity: 1;
+}
+/* Quảng cáo hoặc thông tin trong sidebar */
+.ad-box {
+  background-color: #f7f9fc;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin-left: 20px;
+}
+
+.ad-box h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.ad-box p {
+  font-size: 14px;
+  color: #333;
+}
+
+.ad-box img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.ad-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Nút quảng cáo */
+.ad-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #11adf6;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin-left: 20px;
+}
+
+.ad-link:hover {
+  background-color: #11adf6;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+footer {
+  background-color: #00796b;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+  border-radius: 0px 0px 10px 10px;
+}
+
+footer:hover {
+  transform: translateY(-5px);
+}
